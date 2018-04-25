@@ -1,0 +1,4 @@
+实现线程两种方式：一种是继承Thread类，另一种是实现Runnable接口。
+
+代码的运行结果与代码执行顺序或调用顺序是无关的。
+如果多次调用start()方法，则会出现异常java.lang.IllegalThreadStateException

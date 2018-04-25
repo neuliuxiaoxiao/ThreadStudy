@@ -1,0 +1,9 @@
+虽然println方法在内部是同步的，但是i--的操作却是在进行
+println之前发生的，所以又发生非线程安全问题的概率。
+
+public void println(String x) {
+        synchronized (this) {
+            print(x);
+            newLine();
+        }
+    }

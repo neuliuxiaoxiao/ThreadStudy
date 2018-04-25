@@ -1,0 +1,3 @@
+Thread类中的构造器中，存在可以传递Runnable接口的构造器。
+因为Thread也实现了Runnable接口，意味着构造函数Thread(Runnable target)不光可以传入Runnable接口的对象
+还可以传入一个Thread类的对象，这样做完全可以将一个Thread对象中的run方法交由其他的线程进行调用。

@@ -1,0 +1,19 @@
+currentThread方法
+	返回代码段正在被哪个线程调用的信息
+	Thread.currentThread().getName();
+
+public static void main(String[] args){
+	MyThread t = new MyThread();
+	t.start();
+	//t.run();
+}
+调用Thread.currentThread().getName()后
+start	
+	MyThread构造方法：main
+	run方法：Thread-0
+
+run
+	MyThread构造方法：main
+	run方法：main
+start方法的作用是启动一个新线程，新线程会执行相应的run()方法，start()不能被重复调用
+run()方法则只是普通的方法调用，在调用线程中顺序运行而已

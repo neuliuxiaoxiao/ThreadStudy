@@ -1,0 +1,12 @@
+线程间通信方式：
+	使用wait、notify
+	生产者与消费者模式的实现
+	方法join的使用
+	ThreadLocal类的使用
+	
+notify执行结束不释放锁，必须执行完notify所在的同步代码才释放锁
+wait执行后自动释放锁
+当线程是wait()状态时，调用线程对象的interrupt()方法会出现InterruptedException 异常。
+调用notify一次只通知一个线程进行唤醒
+
+wait(long) 等待long时间被唤醒。

@@ -1,0 +1,5 @@
+isAlive方法是判断当前的线程是否处于激活状态
+mythread.isAlive();
+线程处于正在运行或准备开始运行的状态，就认为线程是存活的。
+如果将线程对象以构造参数的方法传递给Thread对象进行start启动时，
+需要注意Thread.currentThread()和this的差异。

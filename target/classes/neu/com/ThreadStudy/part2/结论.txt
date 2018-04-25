@@ -1,0 +1,30 @@
+方法中的变量不存在非线程安全问题，永远都是线程安全的。这是方法内部的变量是私有的特性造成的。
+synchronized取得的锁都是对象锁，而不是把一段代码或方法当做锁。
+A线程先持有object对象的lock锁，B线程可以以异步的方式调用object对象中非synchronized类型的方法
+A线程先持有object对象的lock锁，B线程如果在这时调用了object对象中的synchronized类型的方法则需等待，也就是同步。
+
+synchronized拥有锁重入的功能。
+出现异常 ，自动释放锁
+同步不具有继承性
+
+synchronized同步代码块
+在使用同步synchronized代码块时需要注意的是，当一个线程访问object的一个synchronized(this)同步代码块时，其他线程对通一个object中所有其他synchronized(this)同步代码块的访问将被阻塞。说明synchronized使用的对象监视器是一个。
+锁非this对象具有一定的优点：如果一个类中有很多个synchronized方法，这时虽然能实现同步，但会受到阻塞，所以影响效率，但如果使用同步代码块锁非this对象，则synchronized(this)代码块中的程序与同步方法是异步的，不与其他所this同步方法争抢this锁。
+
+静态方法synchronized方法与synchronized(class)代码块
+关键字synchronized还可以应用在static静态方法上，如果这样写，那是对当前的.java文件对应的class类进行持锁。
+大多数情况下synchronized代码块都不使用String作为锁对象，而改用其他。
+
+volatile的主要作用是使变量在多个线程间可见。
+  volatile的作用是强制从公共堆栈中取得变量的值，而不是从线程私有数据栈中取得变量的值。但是它最致命的缺点是不支持原子性。
+ 
+volatile是线程同步的轻量级实现，所以性能比synchronized要好，并且volatile只能修饰变量，而synchronized可以修饰方法以及代码块。
+多线程访问volatile不会发生阻塞，而synchronize会出现阻塞
+volatile能保证数据的可见性，但不能保证原子性，而synchronized可以保证原子性，也可以间接保证可见性。
+
+  
+
+
+
+
+
