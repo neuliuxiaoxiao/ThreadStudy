@@ -10,3 +10,21 @@ wait执行后自动释放锁
 调用notify一次只通知一个线程进行唤醒
 
 wait(long) 等待long时间被唤醒。
+
+方法join 等待线程对象销毁
+	join的作用是使所属的线程对象x正常执行run方法中的任务，而使当前线程z进行无限期的阻塞，等待线程x销毁后在继续执行线程z后面的代码。
+	在join过程中，如果当前线程对象被中断，则当前线程出现异常。
+	join(long) 参数指定等待的时间
+	
+join与sleep的区别：
+	join功能在内部是使用wait来实现的，所以join具有释放锁的特点
+	而Thread.sleep 不释放锁
+	
+	
+变量值的共享可以使用public static变量的形式。
+类ThreadLocal主要解决的就是每个线程绑定自己的值，可以将它比喻成全局存放数据的盒子，盒子中可以存储每个线程的私有数据。
+可以通过extends 并重写initialValue()来设置初始值
+
+类InheritableThreadLocal可以在子线程中取得父线程继承下来的值
+在继承的过程中还可以进行修改
+*如果子线程在取得值的同时，主线程将InheritableThreadLocal中的值进行更改，那么子线程取到的值还是旧值
